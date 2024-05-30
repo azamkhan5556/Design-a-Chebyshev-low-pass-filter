@@ -1,0 +1,50 @@
+; Top Design: "waveguides_ADS_Impedance_simulation_lib:cell_1:schematic"
+; Netlisted using Hierarchy Policy: "Standard"
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="waveguides_ADS_Impedance_simulation_lib:cell_1:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+S_Param:SP1 CalcS=yes CalcY=yes CalcZ=yes GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 \
+SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
+
+SweepPlan: SP1_stim Start=0.1 GHz Stop=10 GHz Step=0.01 GHz 
+
+OutputPlan:SP1_Output \
+      Type="Output" \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2
+
+#load "python","LinearCollapse"
+Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
+Port:TermG1  N__6 0 Num=1 Z=50 Ohm Noise=yes 
+Port:TermG2  N__9 0 Num=2 Z=50 Ohm Noise=yes 
+C:C2  N__8 0 C=0.7828 pF 
+C:C1  N__3 0 C=0.7828 pF 
+L:L1  N__6 N__3 L=2.715 nH Noise=yes  
+L:L2  N__3 N__8 L=4.044 nH Noise=yes  
+L:L3  N__8 N__9 L=2.715 nH Noise=yes  
+model MSub1 MSUB H=1 mm Er=4.34 Mur=1 Cond=1.0E+50 Hu=1.0e+036 um T=0.02 mm TanD=0.025 Rough=0 um DielectricLossModel=1 FreqForEpsrTanD=1.0 GHz LowFreqForTanD=1.0 kHz HighFreqForTanD=1.0 THz RoughnessModel=2 
+MLIN2:TL1  N__2 N__1 Subst="MSub1" W=0.421905 mm L=10 mm Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+Port:TermG3  N__2 0 Num=3 Z=50 Ohm Noise=yes 
+Port:TermG4  N__1 0 Num=4 Z=50 Ohm Noise=yes 
+L:L4  N__0 N__10 L=2.746 nH Noise=yes  
+Port:TermG5  N__0 0 Num=5 Z=50 Ohm Noise=yes 
+Port:TermG6  N__10 0 Num=6 Z=50 Ohm Noise=yes 
+MLIN2:TL2  N__19 N__16 Subst="MSub1" W=0.421 mm L=12.9 mm Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MLIN2:TL3  N__17 N__21 Subst="MSub1" W=4.1195 mm L=5.8 um Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MLIN2:TL4  N__12 N__4 Subst="MSub1" W=0.421 mm L=20 mm Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MLIN2:TL5  N__15 N__22 Subst="MSub1" W=4.1195 mm L=5.8 um Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MLIN2:TL6  N__7 N__20 Subst="MSub1" W=0.421 mm L=12.9 mm Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+Port:TermG7  N__19 0 Num=7 Z=50 Ohm Noise=yes 
+Port:TermG8  N__20 0 Num=8 Z=50 Ohm Noise=yes 
+MSTEP:Step1  N__16 N__17 Subst="MSub1" W1=0.421 mm W2=4.1195 mm 
+MSTEP:Step3  N__4 N__15 Subst="MSub1" W1=0.421 mm W2=4.1195 mm 
+MSTEP:Step4  N__22 N__7 Subst="MSub1" W1=4.1195 mm W2=0.421 mm 
+MSTEP:Step5  N__21 N__12 Subst="MSub1" W1=4.1195 mm W2=0.421 mm 
+MLIN2:TL7  N__27 N__14 Subst="MSub1" W=0.421 mm L=12.9 mm Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MLIN2:TL8  N__26 N__27 Subst="MSub1" W=4.1195 mm L=5.8 um Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MLIN2:TL9  N__13 N__26 Subst="MSub1" W=0.421 mm L=20 mm Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MLIN2:TL10  N__28 N__13 Subst="MSub1" W=4.1195 mm L=5.8 um Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MLIN2:TL11  N__25 N__28 Subst="MSub1" W=0.421 mm L=12.9 mm Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+Port:TermG9  N__25 0 Num=9 Z=50 Ohm Noise=yes 
+Port:TermG10  N__14 0 Num=10 Z=50 Ohm Noise=yes 

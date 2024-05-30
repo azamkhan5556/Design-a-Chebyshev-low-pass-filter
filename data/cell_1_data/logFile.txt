@@ -1,0 +1,21 @@
+
+hpeesofsim (*) 551.shp Oct 27 2021, MINT version 5
+    (64-bit windows built: Thu Oct 28, 2021 03:25:42 +0000)
+
+
+***** Simulation started at Mon May 30 13:09:54 2022
+      Running on host: "Khan"
+      In Directory: "E:\Disktop\NCTU_EECS\Intro to waveguides and components design\waveguides_ADS_Impedance_simulation\data"
+      Process ID: 9508
+
+
+SP SP1[1] <waveguides_ADS_Impedance_simulation_lib:cell_1:schematic>   freq=(100 MHz->10 GHz)
+Warning detected by hpeesofsim during SP analysis `SP1'.
+    The Z-parameter matrix does not exist because some or all
+                             of the Z-parameters are infinite.  Setting all Z-parameters to zero.
+
+
+
+Resource usage:
+  Total stopwatch time     =     7.76 seconds.
+
